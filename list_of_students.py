@@ -46,18 +46,11 @@ def average_for_all(students):
     print(f"\nОбщий средний балл по всем студентам: {average_grade_for_all:.2f}")
 
 
-average_for_all(students)  #  Выводим Средний балл по всем студентам
-
-
 #  6.1. Добавим нового студента в список, используя метод append
-def student_adding(new_studing):
+def student_adding(new_student):
     students.append(new_student)
     print("\nДобавлен студент: ", new_student["name"])
     average_for_all(students)  #  7. Пересчитываем и выводим Средний балл по всем студентам, т.к. обновился список студентов
-
-
-new_student = {"name": "Dobby", "grades": [99, 99, 99, 90]}
-student_adding(new_student)
 
 
 #  6.2. Удалим студента с самым низким средним баллом из списка
@@ -73,3 +66,9 @@ def student_expulsion():
     print("\nОтчислен студент с минимальным средним баллом:", student_to_remove["name"])
     students.remove(student_to_remove)
     average_for_all(students)  #  7. Пересчитываем и выводим Средний балл по всем студентам, т.к. обновился список студентов
+
+
+average_for_all(students)  #  Выводим Средний балл по всем студентам
+student_expulsion()  #  Отчисляем студента с самым низким средним баллом из списка
+new_student = {"name": "Dobby", "grades": [99, 99, 99, 90]}  #  Новый студент
+student_adding(new_student)  #  Добавим нового студента в список
