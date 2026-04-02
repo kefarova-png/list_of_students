@@ -50,27 +50,26 @@ average_for_all(students)  #  Выводим Средний балл по все
 
 
 #  6.1. Добавим нового студента в список, используя метод append
-new_student = {"name": "Dobby", "grades": [85, 88, 92]}
-students.append(new_student)
-print("\nДобавлен студент: ", new_student["name"])
+def student_adding(new_studing):
+    students.append(new_student)
+    print("\nДобавлен студент: ", new_student["name"])
+    average_for_all(students)  #  7. Пересчитываем и выводим Средний балл по всем студентам, т.к. обновился список студентов
 
 
-#  7. Средний балл по всем студентам пересчитывается каждый раз, когда обновляется список студентов.
-average_for_all(students)  #  Пересчитываем и выводим Средний балл по всем студентам, т.к. обновился список студентов
+new_student = {"name": "Dobby", "grades": [99, 99, 99, 90]}
+student_adding(new_student)
 
 
 #  6.2. Удалим студента с самым низким средним баллом из списка
-student_to_remove = None  #  Инициализируем переменную (на всякий случай)
-min_avg = float('inf')  #  Число, большее, чем любой средний балл (для поиска минимума)
-for student in students:
-    grades = student["grades"]
-    average_grade = calculate_average(grades)
-    if average_grade < min_avg:
-        min_avg = average_grade
-        student_to_remove = student
-print("\nОтчислен студент с минимальным средним баллом:", student_to_remove["name"])
-students.remove(student_to_remove)
-
-
-#  7. Средний балл по всем студентам пересчитывается каждый раз, когда обновляется список студентов.
-average_for_all(students)  #  Пересчитываем и выводим Средний балл по всем студентам, т.к. обновился список студентов
+def student_expulsion():
+    student_to_remove = None  #  Инициализируем переменную (на всякий случай)
+    min_avg = float('inf')  #  Число, большее, чем любой средний балл (для поиска минимума)
+    for student in students:
+        grades = student["grades"]
+        average_grade = calculate_average(grades)
+        if average_grade < min_avg:
+            min_avg = average_grade
+            student_to_remove = student
+    print("\nОтчислен студент с минимальным средним баллом:", student_to_remove["name"])
+    students.remove(student_to_remove)
+    average_for_all(students)  #  7. Пересчитываем и выводим Средний балл по всем студентам, т.к. обновился список студентов
