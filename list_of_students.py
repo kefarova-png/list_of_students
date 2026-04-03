@@ -4,7 +4,7 @@ students = [
 {"name": "Hermione", "grades": [97, 90, 97]},
 {"name": "Ron", "grades": [62, 70, 64]},
 {"name": "Draco", "grades":[62, 75, 70]}
-]
+]   #  глобальный список
 
 
 #  2. Создаём функцию, которая принимает список оценок и возвращает среднее значение.
@@ -16,7 +16,7 @@ def calculate_average(grades):
 #  3. Логическое выражение-функция:
 #  - проверяет средний балл, если он выше или равен 75, то студент "Успешен",
 #  - выводит соответствующее сообщение.
-def successful_student(average_grade):
+def successful_student():
     if average_grade < 75:
         print("Статус: Неуспешен")
     else:
@@ -30,11 +30,11 @@ for student in students:
 #  4. Выведем для каждого студента сообщение формата, требуемого в задании
     print("\nСтудент: ", student["name"])
     print(f"Средний бал: {average_grade:.2f}")
-    successful_student(average_grade)  #  Вывод сообщения об успешности
+    successful_student()  #  Вывод сообщения об успешности
 
 
 #  6. Рассчитаем общий средний балл по всем студентам и выведем его
-def average_for_all(students):
+def average_for_all():
     total_sum = 0
     total_count = 0
     average_grade_for_all = 0
@@ -47,10 +47,10 @@ def average_for_all(students):
 
 
 #  6.1. Добавим нового студента в список, используя метод append
-def student_adding(new_student):
+def student_adding():
     students.append(new_student)
     print("\nДобавлен студент: ", new_student["name"])
-    average_for_all(students)  #  7. Пересчитываем и выводим Средний балл по всем студентам, т.к. обновился список студентов
+    average_for_all()  #  7. Пересчитываем и выводим Средний балл по всем студентам, т.к. обновился список студентов
 
 
 #  6.2. Удалим студента с самым низким средним баллом из списка
@@ -65,10 +65,10 @@ def student_expulsion():
             student_to_remove = student
     print("\nОтчислен студент с минимальным средним баллом:", student_to_remove["name"])
     students.remove(student_to_remove)
-    average_for_all(students)  #  7. Пересчитываем и выводим Средний балл по всем студентам, т.к. обновился список студентов
+    average_for_all()  #  7. Пересчитываем и выводим Средний балл по всем студентам, т.к. обновился список студентов
 
 
-average_for_all(students)  #  Выводим Средний балл по всем студентам
+average_for_all()  #  Выводим Средний балл по всем студентам
 student_expulsion()  #  Отчисляем студента с самым низким средним баллом из списка
-new_student = {"name": "Dobby", "grades": [99, 99, 99, 90]}  #  Новый студент
-student_adding(new_student)  #  Добавим нового студента в список
+new_student = {"name": "Dobby", "grades": [82, 82, 82, 82]}  #  Новый студент
+student_adding()  #  Добавим нового студента в список
